@@ -1,5 +1,6 @@
 # GSplat-Convert
 
+A simple tool for:
 * Translate/Rotate/Scale gaussian splats
 * Convert `.ply` to `.splat`
 * Rotate Spherical Harmonics (SH) parameters
