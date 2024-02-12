@@ -87,7 +87,14 @@ def transform_data(conf, data: SplatData):
   scale = np.asarray(conf.transform.scale, dtype=np.float32)
 
   if conf.unity_transform:
-    rotation[2] = 180-rotation[2] # unity zxy -> xyz
+    x, y, z = rotation
+    q = Rotation.from_euler('zxy', [z, x, y], degrees=True).as_quat()
+    q = Rotation.from_quat([-q[0], -q[2], -q[1], q[3]])
+    q_shift_r = np.pi/4
+    q_shift_r = Rotation.from_quat([np.sin(q_shift_r), 0., 0., np.cos(q_shift_r)])
+    q_shift_l = Rotation.from_euler('xyz', [90, 180, 0], degrees=True)
+    q = q_shift_l * q * q_shift_r
+    rotation = q.as_euler('xyz', degrees=True)
     position[0] = -position[0]
     position[1] = -position[1]
     position[2] = -position[2]

@@ -1,6 +1,6 @@
 
-input: './point_cloud.ply'
-output: './point_cloud.splat' # './point_cloud.ply'
+input: './splat-converted-edit.ply'
+output: './splat-converted-edit-transformed.splat'  # '.ply'
 max_sh_degree: 3
 
 enable_transform: true  # apply translation/rotation/scaling to splats
@@ -8,6 +8,6 @@ unity_transform: true  # use Unity's coordinates
 rotate_sh: true  # rotate SH parameters
 
 transform:
-  position: [6.702, 2.604, -2.328]
-  rotation: [179.691, 358.858, 3.708]  # euler degrees (xyz)
+  position: [4.236, 2.604, -3.745]
+  rotation: [-266.123, 336.937, -30.52399]  # euler degrees (xyz)
   scale: [9.028663, 9.028663, 9.028663]
